@@ -24841,10 +24841,17 @@
 
 	var React = __webpack_require__(1);
 	var WeatherForm = __webpack_require__(219);
+
 	var Weather = React.createClass({
 	  displayName: 'Weather',
 
 
+	  getInitialState: function getInitialState() {
+	    console.log('Setting Initial State');
+	    return {
+	      location: 'San Francisco'
+	    };
+	  },
 	  handleNewData: function handleNewData(object) {
 	    this.setState(object);
 	    console.log(object);
@@ -24852,6 +24859,7 @@
 
 	  render: function render() {
 	    var title = 'Get Weather';
+	    var location = this.state.location;
 	    return React.createElement(
 	      'div',
 	      null,
@@ -24860,7 +24868,13 @@
 	        null,
 	        title
 	      ),
-	      React.createElement(WeatherForm, { onNewData: this.handleNewData })
+	      React.createElement(WeatherForm, { onNewData: this.handleNewData }),
+	      React.createElement(
+	        'h2',
+	        null,
+	        'Current location is ',
+	        location
+	      )
 	    );
 	  }
 	});
