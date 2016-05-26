@@ -24842,16 +24842,54 @@
 	var React = __webpack_require__(1);
 	var WeatherForm = __webpack_require__(219);
 
+	var WeatherMessage = React.createClass({
+	  displayName: 'WeatherMessage',
+
+	  render: function render() {
+	    var name = this.props.name;
+	    console.log(name);
+	    return React.createElement(
+	      'h2',
+	      null,
+	      'Current location is ',
+	      name
+	    );
+	  }
+	});
+
 	var Weather = React.createClass({
 	  displayName: 'Weather',
 
 
-	  getInitialState: function getInitialState() {
-	    console.log('Setting Initial State');
+	  // getDefaultProps: function(){
+	  //   console.log('Setting Initial Props');
+	  //   return {
+	  //     location: 'New York',
+	  //     temp: '14'
+	  //   }
+	  // },
+
+	  getDefaultProps: function getDefaultProps() {
 	    return {
-	      location: 'San Francisco'
+	      name: 'React',
+	      message: 'This is the default message!'
 	    };
 	  },
+
+	  // getInitialState: function(){
+	  //   console.log('Setting Initial State');
+	  //   return {
+	  //     location: this.props.location.value,
+	  //   };
+	  // },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      name: this.props.name,
+	      message: this.props.message
+	    };
+	  },
+
 	  handleNewData: function handleNewData(object) {
 	    this.setState(object);
 	    console.log(object);
@@ -24859,7 +24897,8 @@
 
 	  render: function render() {
 	    var title = 'Get Weather';
-	    var location = this.state.location;
+	    var name = this.state.name;
+
 	    return React.createElement(
 	      'div',
 	      null,
@@ -24869,12 +24908,7 @@
 	        title
 	      ),
 	      React.createElement(WeatherForm, { onNewData: this.handleNewData }),
-	      React.createElement(
-	        'h2',
-	        null,
-	        'Current location is ',
-	        location
-	      )
+	      React.createElement(WeatherMessage, { name: name })
 	    );
 	  }
 	});
