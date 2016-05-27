@@ -6,43 +6,30 @@ var WeatherMessage = React.createClass({
     var name = this.props.name;
      console.log(name);
     return (
-      <h2>Current location is {name}</h2>
+      <h2>Current name is {name}</h2>
     );
   },
 });
 
 var Weather = React.createClass({
 
-  // getDefaultProps: function(){
-  //   console.log('Setting Initial Props');
-  //   return {
-  //     location: 'New York',
-  //     temp: '14'
-  //   }
-  // },
-
   getDefaultProps: function () {
     return {
-      name: 'React',
-      message: 'This is the default message!'
+      name: 'San Francisco',
+      tempreture: '18'
     };
   },
 
-  // getInitialState: function(){
-  //   console.log('Setting Initial State');
-  //   return {
-  //     location: this.props.location.value,
-  //   };
-  // },
-
   getInitialState: function () {
+  console.log('Getting initial state');
   return {
       name: this.props.name,
-      message: this.props.message
+      tempreture: this.props.tempreture
   };
  },
 
   handleNewData: function(object){
+    console.log('Setting state');
     this.setState(object);
     console.log(object);
   },

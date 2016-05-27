@@ -24851,7 +24851,7 @@
 	    return React.createElement(
 	      'h2',
 	      null,
-	      'Current location is ',
+	      'Current name is ',
 	      name
 	    );
 	  }
@@ -24861,36 +24861,23 @@
 	  displayName: 'Weather',
 
 
-	  // getDefaultProps: function(){
-	  //   console.log('Setting Initial Props');
-	  //   return {
-	  //     location: 'New York',
-	  //     temp: '14'
-	  //   }
-	  // },
-
 	  getDefaultProps: function getDefaultProps() {
 	    return {
-	      name: 'React',
-	      message: 'This is the default message!'
+	      name: 'San Francisco',
+	      tempreture: '18'
 	    };
 	  },
 
-	  // getInitialState: function(){
-	  //   console.log('Setting Initial State');
-	  //   return {
-	  //     location: this.props.location.value,
-	  //   };
-	  // },
-
 	  getInitialState: function getInitialState() {
+	    console.log('Getting initial state');
 	    return {
 	      name: this.props.name,
-	      message: this.props.message
+	      tempreture: this.props.tempreture
 	    };
 	  },
 
 	  handleNewData: function handleNewData(object) {
+	    console.log('Setting state');
 	    this.setState(object);
 	    console.log(object);
 	  },
@@ -24929,12 +24916,13 @@
 	  onFormSubmit: function onFormSubmit(e) {
 	    e.preventDefault();
 	    var object = {};
-	    var location = this.refs.location.value;
-	    console.log(this.refs.location);
+	    var name = this.refs.name.value;
+	    console.log('onFormSubmit');
+	    console.log(name);
 
-	    if (location.length > 0) {
-	      this.refs.location = '';
-	      object.location = location;
+	    if (name.length > 0) {
+	      this.refs.name = '';
+	      object.name = name;
 	    }
 
 	    this.props.onNewData(object);
@@ -24947,7 +24935,7 @@
 	      React.createElement(
 	        'div',
 	        null,
-	        React.createElement('input', { type: 'text', ref: 'location', placeholder: 'Enter City Name' })
+	        React.createElement('input', { type: 'text', ref: 'name', placeholder: 'Enter City Name' })
 	      ),
 	      React.createElement(
 	        'div',
