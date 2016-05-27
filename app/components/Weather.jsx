@@ -6,7 +6,7 @@ var Weather = React.createClass({
 
   getDefaultProps: function () {
     return {
-      name: 'San Francisco',
+      location: 'San Francisco',
       tempreture: '18'
     };
   },
@@ -14,7 +14,7 @@ var Weather = React.createClass({
   getInitialState: function () {
   console.log('Getting initial state');
   return {
-      name: this.props.name,
+      location: this.props.location,
       tempreture: this.props.tempreture
   };
  },
@@ -27,14 +27,14 @@ var Weather = React.createClass({
 
   render: function(){
     var title = 'Get Weather';
-    var name = this.state.name;
+    var location = this.state.location;
     var tempreture = this.state.tempreture;
 
     return (
       <div>
         <h1>{title}</h1>
         <WeatherForm onNewData={this.handleNewData}></WeatherForm>
-        <WeatherMessage name={name} tempreture={tempreture}></WeatherMessage>
+        <WeatherMessage location={location} tempreture={tempreture}></WeatherMessage>
       </div>
     );
   },

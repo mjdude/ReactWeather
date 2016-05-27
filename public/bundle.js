@@ -24849,7 +24849,7 @@
 
 	  getDefaultProps: function getDefaultProps() {
 	    return {
-	      name: 'San Francisco',
+	      location: 'San Francisco',
 	      tempreture: '18'
 	    };
 	  },
@@ -24857,7 +24857,7 @@
 	  getInitialState: function getInitialState() {
 	    console.log('Getting initial state');
 	    return {
-	      name: this.props.name,
+	      location: this.props.location,
 	      tempreture: this.props.tempreture
 	    };
 	  },
@@ -24870,7 +24870,7 @@
 
 	  render: function render() {
 	    var title = 'Get Weather';
-	    var name = this.state.name;
+	    var location = this.state.location;
 	    var tempreture = this.state.tempreture;
 
 	    return React.createElement(
@@ -24882,7 +24882,7 @@
 	        title
 	      ),
 	      React.createElement(WeatherForm, { onNewData: this.handleNewData }),
-	      React.createElement(WeatherMessage, { name: name, tempreture: tempreture })
+	      React.createElement(WeatherMessage, { location: location, tempreture: tempreture })
 	    );
 	  }
 	});
@@ -24903,13 +24903,13 @@
 	  onFormSubmit: function onFormSubmit(e) {
 	    e.preventDefault();
 	    var object = {};
-	    var name = this.refs.name.value;
+	    var location = this.refs.location.value;
 	    console.log('onFormSubmit');
-	    console.log(name);
+	    console.log(location);
 
-	    if (name.length > 0) {
-	      this.refs.name.value = '';
-	      object.name = name;
+	    if (location.length > 0) {
+	      this.refs.location.value = '';
+	      object.location = location;
 	    }
 
 	    this.props.onNewData(object);
@@ -24922,7 +24922,7 @@
 	      React.createElement(
 	        'div',
 	        null,
-	        React.createElement('input', { type: 'text', ref: 'name', placeholder: 'Enter City Name' })
+	        React.createElement('input', { type: 'text', ref: 'location', placeholder: 'Enter City location' })
 	      ),
 	      React.createElement(
 	        'div',
@@ -24951,16 +24951,16 @@
 	  displayName: 'WeatherMessage',
 
 	  render: function render() {
-	    var name = this.props.name;
+	    var location = this.props.location;
 	    var tempreture = this.props.tempreture;
-	    console.log(name);
+	    console.log(location);
 	    return React.createElement(
 	      'p',
 	      null,
 	      'Its ',
 	      tempreture,
 	      ' in ',
-	      name
+	      location
 	    );
 	  }
 	});
