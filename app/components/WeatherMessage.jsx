@@ -6,7 +6,7 @@ var WeatherMessage = React.createClass({
     var tempreture = this.props.tempreture;
      console.log(name);
     return (
-      <h2>Its {tempreture} in {name}</h2>
+      <p>Its {tempreture} in {name}</p>
     );
   },
 });

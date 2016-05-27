@@ -24908,7 +24908,7 @@
 	    console.log(name);
 
 	    if (name.length > 0) {
-	      this.refs.name = '';
+	      this.refs.name.value = '';
 	      object.name = name;
 	    }
 
@@ -24955,7 +24955,7 @@
 	    var tempreture = this.props.tempreture;
 	    console.log(name);
 	    return React.createElement(
-	      'h2',
+	      'p',
 	      null,
 	      'Its ',
 	      tempreture,

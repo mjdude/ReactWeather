@@ -9,7 +9,7 @@ var WeatherForm = React.createClass({
     console.log(name);
 
     if (name.length > 0) {
-      this.refs.name ='';
+      this.refs.name.value ='';
       object.name = name;
     }
 
