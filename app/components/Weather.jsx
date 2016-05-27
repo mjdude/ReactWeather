@@ -1,15 +1,6 @@
 var React = require('react');
 var WeatherForm = require('WeatherForm');
-
-var WeatherMessage = React.createClass({
-  render: function(){
-    var name = this.props.name;
-     console.log(name);
-    return (
-      <h2>Current name is {name}</h2>
-    );
-  },
-});
+var WeatherMessage = require('WeatherMessage');
 
 var Weather = React.createClass({
 
@@ -37,13 +28,13 @@ var Weather = React.createClass({
   render: function(){
     var title = 'Get Weather';
     var name = this.state.name;
+    var tempreture = this.state.tempreture;
 
     return (
       <div>
         <h1>{title}</h1>
         <WeatherForm onNewData={this.handleNewData}></WeatherForm>
-        <WeatherMessage name={name}></WeatherMessage>
-
+        <WeatherMessage name={name} tempreture={tempreture}></WeatherMessage>
       </div>
     );
   },

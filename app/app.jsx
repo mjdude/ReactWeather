@@ -12,7 +12,6 @@ ReactDOM.render(
       <Route path="about" component={About}></Route>
       <Route path="examples" component={Examples}></Route>
       <IndexRoute component={Weather}></IndexRoute>
-
     </Route>
 
   </Router>,

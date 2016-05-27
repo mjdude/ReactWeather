@@ -58,8 +58,8 @@
 
 	var Main = __webpack_require__(216);
 	var Weather = __webpack_require__(218);
-	var About = __webpack_require__(220);
-	var Examples = __webpack_require__(221);
+	var About = __webpack_require__(221);
+	var Examples = __webpack_require__(222);
 
 	ReactDOM.render(React.createElement(
 	  Router,
@@ -24841,21 +24841,7 @@
 
 	var React = __webpack_require__(1);
 	var WeatherForm = __webpack_require__(219);
-
-	var WeatherMessage = React.createClass({
-	  displayName: 'WeatherMessage',
-
-	  render: function render() {
-	    var name = this.props.name;
-	    console.log(name);
-	    return React.createElement(
-	      'h2',
-	      null,
-	      'Current name is ',
-	      name
-	    );
-	  }
-	});
+	var WeatherMessage = __webpack_require__(220);
 
 	var Weather = React.createClass({
 	  displayName: 'Weather',
@@ -24885,6 +24871,7 @@
 	  render: function render() {
 	    var title = 'Get Weather';
 	    var name = this.state.name;
+	    var tempreture = this.state.tempreture;
 
 	    return React.createElement(
 	      'div',
@@ -24895,7 +24882,7 @@
 	        title
 	      ),
 	      React.createElement(WeatherForm, { onNewData: this.handleNewData }),
-	      React.createElement(WeatherMessage, { name: name })
+	      React.createElement(WeatherMessage, { name: name, tempreture: tempreture })
 	    );
 	  }
 	});
@@ -24943,7 +24930,7 @@
 	        React.createElement(
 	          'button',
 	          null,
-	          'Submit'
+	          'Get Weather'
 	        )
 	      )
 	    );
@@ -24954,6 +24941,34 @@
 
 /***/ },
 /* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var WeatherMessage = React.createClass({
+	  displayName: 'WeatherMessage',
+
+	  render: function render() {
+	    var name = this.props.name;
+	    var tempreture = this.props.tempreture;
+	    console.log(name);
+	    return React.createElement(
+	      'h2',
+	      null,
+	      'Its ',
+	      tempreture,
+	      ' in ',
+	      name
+	    );
+	  }
+	});
+
+	module.exports = WeatherMessage;
+
+/***/ },
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24975,7 +24990,7 @@
 	module.exports = About;
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
