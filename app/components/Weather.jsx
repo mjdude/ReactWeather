@@ -3,38 +3,31 @@ var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
 
 var Weather = React.createClass({
-
-  getDefaultProps: function () {
+  getInitialState: function(){
     return {
-      name: 'San Francisco',
-      tempreture: '18'
+      location: 'Miami',
+      temp: 28
     };
   },
 
-  getInitialState: function () {
-  console.log('Getting initial state');
-  return {
-      name: this.props.name,
-      tempreture: this.props.tempreture
-  };
- },
-
-  handleNewData: function(object){
-    console.log('Setting state');
-    this.setState(object);
-    console.log(object);
+  handleSearch: function(location){
+    this.setState({
+      location: location,
+      temp: 23
+    });
   },
 
   render: function(){
     var title = 'Get Weather';
-    var name = this.state.name;
-    var tempreture = this.state.tempreture;
+    var {temp, location} = this.state;
+    // var me = this.state.name;
+    // var tempreture = this.state.tempreture;
 
     return (
       <div>
         <h1>{title}</h1>
-        <WeatherForm onNewData={this.handleNewData}></WeatherForm>
-        <WeatherMessage name={name} tempreture={tempreture}></WeatherMessage>
+        <WeatherForm onSearch={this.handleSearch}></WeatherForm>
+        <WeatherMessage location={location} temp={temp}></WeatherMessage>
       </div>
     );
   },
