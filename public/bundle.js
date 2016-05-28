@@ -24849,41 +24849,55 @@
 
 	  getInitialState: function getInitialState() {
 	    return {
-	      location: 'Miami',
-	      temp: 28
+	      isLoading: false
 	    };
 	  },
-
 	  handleSearch: function handleSearch(location) {
 	    var that = this;
+
+	    this.setState({ isLoading: true });
+
 	    openWeatherMap.getTemp(location).then(function (temp) {
 	      that.setState({
 	        location: location,
-	        temp: temp
+	        temp: temp,
+	        isLoading: false
 	      });
 	    }, function (errorMessage) {
+	      console.log('error recieved');
+	      that.setState({ isLoading: false });
 	      alert(errorMessage);
 	    });
 	  },
-
 	  render: function render() {
-	    var title = 'Get Weather';
 	    var _state = this.state;
+	    var isLoading = _state.isLoading;
 	    var temp = _state.temp;
 	    var location = _state.location;
-	    // var me = this.state.name;
-	    // var tempreture = this.state.tempreture;
+
+
+	    function renderMessage() {
+	      if (isLoading) {
+	        return React.createElement(
+	          'h3',
+	          null,
+	          'Fetching weather...'
+	        );
+	      } else if (temp && location) {
+	        return React.createElement(WeatherMessage, { temp: temp, location: location });
+	      }
+	    }
 
 	    return React.createElement(
 	      'div',
 	      null,
 	      React.createElement(
-	        'h1',
+	        'h3',
 	        null,
-	        title
+	        'Weather Component'
 	      ),
 	      React.createElement(WeatherForm, { onSearch: this.handleSearch }),
-	      React.createElement(WeatherMessage, { location: location, temp: temp })
+	      renderMessage()
 	    );
 	  }
 	});
@@ -24903,6 +24917,7 @@
 
 	  onFormSubmit: function onFormSubmit(e) {
 	    e.preventDefault();
+
 	    var location = this.refs.location.value;
 
 	    if (location.length > 0) {
@@ -24910,19 +24925,14 @@
 	      this.props.onSearch(location);
 	    }
 	  },
-
 	  render: function render() {
 	    return React.createElement(
-	      'form',
-	      { onSubmit: this.onFormSubmit },
+	      'div',
+	      null,
 	      React.createElement(
-	        'div',
-	        null,
-	        React.createElement('input', { type: 'text', ref: 'location', placeholder: 'Enter City location' })
-	      ),
-	      React.createElement(
-	        'div',
-	        null,
+	        'form',
+	        { onSubmit: this.onFormSubmit },
+	        React.createElement('input', { type: 'text', ref: 'location' }),
 	        React.createElement(
 	          'button',
 	          null,
@@ -24953,12 +24963,13 @@
 
 
 	    return React.createElement(
-	      'p',
+	      'h3',
 	      null,
-	      'It\'s ',
+	      'It\'s it ',
 	      temp,
 	      ' in ',
-	      location
+	      location,
+	      '.'
 	    );
 	  }
 	});
