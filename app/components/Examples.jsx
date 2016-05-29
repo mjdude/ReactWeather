@@ -1,11 +1,10 @@
 var React = require('react');
 
-var Examples = React.createClass({
-  render: function(){
-    return (
-      <h3>Examples Component</h3>
-    );
-  },
-});
+// stateless functinoal component , no need to use React.createClass
+// because all we do is render
+
+var Examples = (props) => {
+  return <h3>Examples Component</h3>
+};
 
 module.exports = Examples;
