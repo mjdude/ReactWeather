@@ -4,7 +4,7 @@ var React = require('react');
 // because all we do is render
 
 var Examples = (props) => {
-  return <h3>Examples Component</h3>
+  return <h3>Examples</h3>
 };
 
 module.exports = Examples;
