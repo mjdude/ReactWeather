@@ -4,7 +4,10 @@ var React = require('react');
 // because all we do is render
 var About = (props) => {
   return (
-    <h3>About</h3>
+    <div>
+      <h3>About</h3>
+      <p>Welcome to the abouts page</p>
+    </div>
   );
 };
 
