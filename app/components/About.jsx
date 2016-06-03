@@ -6,17 +6,17 @@ var About = (props) => {
   return (
     <div>
       <h1 className="text-center">About</h1>
-      <p>Welcome to the abouts page. This app allows you to query for the weather in any city
-      in the world. Below i've put in a few links to tools used to build this app</p>
+      <p>This is a weather application built with react, open weahter map api and foundation</p>
+      <p>Here are some of the tools i've used</p>
     <ul>
       <li>
-          <a href="https://facebook.github.io/react/">React as a front end library</a>
+          <a href="https://facebook.github.io/react/">React</a> - This was the javascript framework used.
       </li>
       <li>
-          <a href="http://openweathermap.org/">Open weather maps api for access to weather data</a>
+          <a href="http://openweathermap.org/">Open Weather Map</a> - Open weather maps api was used for access to weather data.
       </li>
       <li>
-        <a href="http://foundation.zurb.com/">Foundation to style the page</a>
+        <a href="http://foundation.zurb.com/">Foundation</a> - This was used to style the page.
       </li>
     </ul>
     </div>
