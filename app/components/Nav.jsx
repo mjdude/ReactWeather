@@ -1,15 +1,12 @@
 var React = require('react');
 var {Link, IndexLink} = require('react-router');
 
-// stateless functinoal component , no need to use React.createClass
-// because all we do is render
-
 var Nav = React.createClass({
-  onSearch: function(e){
-    e.preventDefault();
-    alert('not yet wired up');
+  onSearch: function (e) {
+      e.preventDefault();
+      alert('Not yet wired up!');
   },
-  render: function(){
+  render: function () {
     return (
       <div className="top-bar">
         <div className="top-bar-left">
@@ -19,19 +16,22 @@ var Nav = React.createClass({
               <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>
             </li>
             <li>
-              <Link to='/about' activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</Link>
+              <Link to="/about" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>About</Link>
             </li>
             <li>
-              <Link to='/examples' activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link>
+              <Link to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link>
             </li>
           </ul>
-
         </div>
         <div className="top-bar-right">
           <form onSubmit={this.onSearch}>
             <ul className="menu">
-              <li><input type="search" placeholder="Search Weather"> </input></li>
-              <li><input type="submit" className="button" value="Get Weather"></input></li>
+              <li>
+                <input type="search" placeholder="Search weather"/>
+              </li>
+              <li>
+                <input type="submit" className="button" value="Get Weather"/>
+              </li>
             </ul>
           </form>
         </div>
@@ -39,6 +39,5 @@ var Nav = React.createClass({
     );
   }
 });
-
 
 module.exports = Nav;

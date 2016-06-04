@@ -1,9 +1,6 @@
 var React = require('react');
 var Nav = require('Nav');
 
-// stateless functinoal component , no need to use React.createClass
-// because all we do is render
-
 var Main = (props) => {
   return (
     <div>
